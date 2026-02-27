@@ -1,0 +1,135 @@
+#include<stdio.h>
+#include<conio.h>
+#include<stdlib.h>
+struct term
+{
+int c,e;
+struct term *next;
+}*head1,*new1,*p1,*head2,*new2,*p2;
+void create();
+void display();
+void add();
+main()
+{
+int ch;
+while(1)
+{
+printf("\n menu\n1.create\n2.display\n3.add\n4.exit\n");
+printf("\n enter u r choice \n");
+scanf("%d",&ch);
+switch(ch)
+{
+case 1:create();break;
+case 2:display(); break;
+case 3:add();break;
+default:exit(1);
+}
+}
+getch();
+}
+void create()
+{
+char c;
+printf("\n enter 1 polynomial \n");
+do
+{
+new1=(struct term *)malloc(sizeof(struct term));
+printf("\n enter coefficient and exponent \n");
+scanf("%d%d",&new1->c,&new1->e);
+new1->next=NULL;
+if(head1==NULL)
+{
+head1=p1=new1;
+}
+else
+{
+p1->next=new1;
+p1=new1;
+}
+printf("\n do u want to add one more node to the list(y/n)?\n");
+fflush(stdin);
+scanf("%c",&c);
+}while(c=='y');
+printf("\n enter second polynomial \n");
+do
+{
+new2=(struct term *)malloc(sizeof(struct term));
+printf("\n enter coefficient and exponent values \n");
+scanf("%d%d",&new2->c,&new2->e);
+new2->next=NULL;
+if(head2==NULL)
+{
+head2=p2=new2;
+}
+else
+{
+p2->next=new2;
+p2=new2;
+}
+printf("\n do u want to add one more node to the list \n");
+fflush(stdin);
+scanf("%c",&c);
+}while(c=='y');
+}
+void display()
+{
+printf("\n 1 polynomial is \n");
+p1=head1;
+while(p1!=NULL)
+{
+printf("\n %dx^%d",p1->c,p1->e);
+p1=p1->next;
+if(p1!=NULL)
+printf("+");
+}
+printf("\n 2 polynomial is \n");
+p2=head2;
+while(p2!=NULL)
+{
+printf("%dx^%d",p2->c,p2->e);
+p2=p2->next;
+if(p2!=NULL)
+printf("+");
+}
+}
+void add()
+{
+p1=head1;
+p2=head2;
+printf("\n after add the resultant polynomial is \n");
+while(p1!=NULL&&p2!=NULL)
+{
+if(p1->e==p2->e)
+{
+printf("\n%dx^%d",p1->c+p2->c,p1->e);
+p1=p1->next;
+p2=p2->next;
+}
+else if(p1->e>p2->e)
+{
+printf("\n %dx^%d",p1->c,p1->e);
+p1=p1->next;
+}
+else
+{
+printf(" %dx^%d",p2->c,p2->e);
+p2=p2->next;
+}
+if(p1!=NULL||p2!=NULL)
+printf("+");
+}
+while(p1!=NULL)
+{
+printf(" %dx^%d",p1->c,p1->e);
+p1=p1->next;
+if(p1!=NULL)
+printf("+");
+}
+while(p2!=NULL)
+{
+printf("\%dx^%d",p2->c,p2->e);
+p2=p2->next;
+if(p2!=NULL)
+printf("+");
+}
+}

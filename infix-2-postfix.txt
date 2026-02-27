@@ -1,0 +1,35 @@
+infix:K+L-M*N+(O^P)*W/U/V*T+Q
+postfix:KL+MN*-OP^W*U/V/T*+Q+
+
+infix:a*(b+c+d)
+postfix: abc+d+*
+
+infix: (A + B) * C - (D - E) * (F + G)
+postfix: A B+ C * D E- F G+*-
+
+infix:( ( A + B ) * ( C – D ) + E ) / (F + G) 
+postfix: 
+
+infix: 2+4/5*(5-3)^5^4
+postfix: 245/53-5^4^*+
+
+infix: A+B/C*(D-A)^F^H
+postfix: ABC/DA-F^H^*+
+
+infix:A-B/(C*D^E)
+postfix: ABCDE^*/-
+
+infix: 2*3/(2-1)+5*3
+postfix: 23*21-/53*+
+
+infix:( 5 + 6) * 9 +10
+postfix: 5 6 + 9 * 10 +
+
+
+infix:(2-3+4)*(5+6*7)
+postfix: 
+
+
+
+
+

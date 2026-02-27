@@ -1,0 +1,41 @@
+#include<stdio.h>
+struct Node {  
+    int data;  
+    struct Node* next;  
+} *h=NULL,*t;  
+ 
+void main()
+{
+    int c;
+    printf("Linked list ");
+    printf("\nEnter choice \n1 to insert\n 2 to delete \n 3. Display");
+    scanf("%d",&c);
+    switch(c)
+    {
+        case 1: 
+                 printf("\nEnter \n1 to Insert Begin\n 2 Insert at End \n 3. Insert At specified");
+                 scanf("%d",&c);
+                 switch(c)
+                 {
+                     case 1: insertbegin();break;
+                     case 2: insertend();break;
+                     case 3: insertspecified();break;
+                     
+                 }
+                
+        case 2:  printf("\nEnter \n1 to Delete Begin\n 2 Delete at End \n 3. Delete At specified");
+                 scanf("%d",&c);
+                 switch(c)
+                 {
+                     case 1: deletebegin();break;
+                     case 2: deleteend();break;
+                     case 3: deletespecified();break;
+                     
+                 }
+                 
+        case 3: 
+                 display(); break;
+                 
+    }
+    return 0;
+}
